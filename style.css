@@ -1,0 +1,163 @@
+:root {
+  --paper: #f5f1e8;
+  --ink: #1f1c17;
+  --muted: #6b6457;
+  --rule: #d9d1c1;
+  --accent: #a4441b;
+  --code-bg: #ebe5d8;
+  --note-bg: #f0e2d6;
+  --note-rule: #c97a52;
+  --serif: "Iowan Old Style", "Charter", "Bitstream Charter", "Sitka Text", Georgia, serif;
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #17150f;
+    --ink: #e9e3d6;
+    --muted: #9c9483;
+    --rule: #39342a;
+    --accent: #e08a5a;
+    --code-bg: #221f18;
+    --note-bg: #2a1f17;
+    --note-rule: #a75c38;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+a { color: var(--accent); text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Site header: the name is a command line */
+.site {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  padding: 2rem 0 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.site .name { color: var(--ink); text-decoration: none; font-weight: 600; }
+.site .name .prompt { color: var(--muted); font-weight: 400; }
+.site .name .flag { color: var(--accent); }
+.site nav a { color: var(--muted); text-decoration: none; margin-left: 1rem; }
+.site nav a:first-child { margin-left: 0; }
+.site nav a:hover { color: var(--accent); }
+
+main { padding: 2rem 0 3rem; }
+
+h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+h1 { font-size: 2rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.35rem; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+
+.meta {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 2rem;
+}
+
+p, ul, ol { margin: 0 0 1.1rem; }
+li { margin: 0.3rem 0; }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+pre {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  background: var(--code-bg);
+  padding: 0.9rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 0 0 1.4rem;
+}
+pre code { background: none; padding: 0; font-size: inherit; white-space: pre; }
+
+blockquote {
+  margin: 0 0 1.4rem;
+  padding: 0 0 0 1rem;
+  border-left: 3px solid var(--rule);
+  color: var(--muted);
+}
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+table { border-collapse: collapse; width: 100%; margin: 0 0 1.4rem; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--mono); font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+.table-scroll { overflow-x: auto; }
+
+/* "What I got wrong": the recurring box */
+.wrong {
+  background: var(--note-bg);
+  border-left: 3px solid var(--note-rule);
+  padding: 0.9rem 1.1rem 0.1rem;
+  margin: 0 0 1.4rem;
+  border-radius: 0 4px 4px 0;
+}
+.wrong::before {
+  content: "what I got wrong";
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+/* Post list on the front page */
+.posts ul { list-style: none; padding: 0; margin: 0; }
+.posts li { margin: 0 0 2rem; }
+.posts .date { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); }
+.posts a.title { font-size: 1.3rem; font-weight: 600; text-decoration: none; color: var(--ink); }
+.posts a.title:hover { color: var(--accent); }
+.posts p { margin: 0; color: var(--muted); line-height: 1.5; }
+.posts .title { display: inline-block; margin: 0.15rem 0 0.25rem; }
+
+.intro { margin-bottom: 2.5rem; }
+
+footer {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  padding: 1.25rem 0 2.5rem;
+}
+
+@media (max-width: 480px) {
+  body { font-size: 1.05rem; }
+  h1 { font-size: 1.6rem; }
+}
